@@ -31,7 +31,7 @@ Greedy/
 
 | Topic               | Problems Solved |
 | ------------------- | --------------: |
-| Arrays              |               1 |
+| Arrays              |               2 |
 | Strings             |               0 |
 | Trees               |               1 |
 | Graphs              |               0 |
