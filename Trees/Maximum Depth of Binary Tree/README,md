@@ -1,0 +1,315 @@
+# Maximum Depth of Binary Tree
+
+## Problem Statement
+
+Given the `root` of a binary tree, return its **maximum depth**.
+
+The **maximum depth** of a binary tree is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+---
+
+## Examples
+
+### Example 1
+
+```text
+Input:
+root = [3,9,20,null,null,15,7]
+
+Output:
+3
+```
+
+**Explanation**
+
+```text
+        3
+       / \
+      9   20
+         /  \
+        15   7
+
+Longest Paths:
+3 → 20 → 15
+3 → 20 → 7
+
+Maximum Depth = 3
+```
+
+---
+
+### Example 2
+
+```text
+Input:
+root = [1,null,2]
+
+Output:
+2
+```
+
+**Explanation**
+
+```text
+    1
+     \
+      2
+
+Maximum Depth = 2
+```
+
+---
+
+## Intuition
+
+The depth of a node depends on the depth of its children.
+
+For every node:
+
+* Find the maximum depth of its left subtree.
+* Find the maximum depth of its right subtree.
+* The current node's depth is:
+
+```python
+1 + max(left_depth, right_depth)
+```
+
+This naturally leads to a **Depth First Search (DFS)** using recursion.
+
+---
+
+## Approach
+
+Each recursive call has one responsibility:
+
+> **Return the maximum depth of the subtree rooted at the current node.**
+
+### Base Case
+
+If the node is `None`, its depth is `0`.
+
+```python
+if not root:
+    return 0
+```
+
+### Recursive Step
+
+1. Compute the depth of the left subtree.
+2. Compute the depth of the right subtree.
+3. Return the larger depth plus one for the current node.
+
+---
+
+## Algorithm
+
+1. If the current node is `None`, return `0`.
+2. Recursively calculate the depth of the left subtree.
+3. Recursively calculate the depth of the right subtree.
+4. Return:
+
+```python
+1 + max(left_depth, right_depth)
+```
+
+---
+
+## Solution
+
+```python
+class Solution:
+    def maxDepth(self, root):
+
+        if not root:
+            return 0
+
+        left_depth = self.maxDepth(root.left)
+        right_depth = self.maxDepth(root.right)
+
+        return 1 + max(left_depth, right_depth)
+```
+
+---
+
+## Dry Run
+
+Tree:
+
+```text
+        3
+       / \
+      9   20
+         /  \
+        15   7
+```
+
+### Step 1
+
+Start from the root.
+
+```text
+maxDepth(3)
+```
+
+It needs the depths of both subtrees.
+
+---
+
+### Step 2
+
+Left subtree:
+
+```text
+maxDepth(9)
+```
+
+Node `9` is a leaf.
+
+```text
+Left = 0
+Right = 0
+
+Depth = 1
+```
+
+---
+
+### Step 3
+
+Right subtree:
+
+```text
+maxDepth(20)
+```
+
+It computes:
+
+```text
+maxDepth(15) = 1
+maxDepth(7) = 1
+```
+
+Therefore,
+
+```text
+Depth = 1 + max(1,1)
+
+= 2
+```
+
+---
+
+### Step 4
+
+Back to the root:
+
+```text
+Left Depth = 1
+Right Depth = 2
+
+Depth = 1 + max(1,2)
+
+= 3
+```
+
+Final Answer:
+
+```text
+3
+```
+
+---
+
+## Recursive Flow
+
+```text
+maxDepth(3)
+│
+├── maxDepth(9)
+│     ├── None → 0
+│     └── None → 0
+│
+│     returns 1
+│
+└── maxDepth(20)
+      │
+      ├── maxDepth(15)
+      │     ├── None → 0
+      │     └── None → 0
+      │
+      │     returns 1
+      │
+      └── maxDepth(7)
+            ├── None → 0
+            └── None → 0
+
+            returns 1
+
+20 returns 2
+
+3 returns 3
+```
+
+---
+
+## Complexity Analysis
+
+| Complexity           | Value    |
+| -------------------- | -------- |
+| **Time Complexity**  | **O(n)** |
+| **Space Complexity** | **O(h)** |
+
+Where:
+
+* **n** = Number of nodes in the tree.
+* **h** = Height of the tree.
+
+### Best Case (Balanced Tree)
+
+```text
+Space = O(log n)
+```
+
+### Worst Case (Skewed Tree)
+
+```text
+1
+ \
+  2
+   \
+    3
+     \
+      4
+```
+
+```text
+Space = O(n)
+```
+
+---
+
+## Why This Works
+
+The solution follows the recursive definition of a tree's height:
+
+> **The height of a node is one plus the maximum height of its left and right subtrees.**
+
+Since each node computes its answer using the results from its children, the entire tree's maximum depth is calculated naturally.
+
+Every node is visited exactly once, making this the optimal solution.
+
+---
+
+## Key Takeaways
+
+* Uses **Depth First Search (DFS)** with recursion.
+* Solves each subtree independently.
+* Follows the recursive definition of tree height.
+* Visits every node exactly once.
+* Optimal **O(n)** time complexity.
+
+---
+
+## Tags
+
+`Binary Tree` `DFS` `Recursion` `Tree Traversal` `LeetCode 104` `Interview Preparation`
