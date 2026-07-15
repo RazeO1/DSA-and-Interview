@@ -31,13 +31,12 @@ Greedy/
 
 | Topic               | Problems Solved |
 | ------------------- | --------------: |
-| Arrays              |               4 |
+| Arrays              |               5 |
 | Strings             |               1 |
 | Trees               |               3 |
 | Graphs              |               0 |
 | Dynamic Programming |               0 |
 | Backtracking        |               0 |
-| Greedy              |               0 |
 
 ---
 
