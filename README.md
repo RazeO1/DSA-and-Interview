@@ -37,7 +37,7 @@ Greedy/
 | Graphs              |               0 |
 | Dynamic Programming |               0 |
 | Backtracking        |               0 |
-| Math                |               0 |
+| Math                |               1 |
 
 ---
 
