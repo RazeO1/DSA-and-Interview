@@ -34,7 +34,7 @@ Greedy/
 | Arrays              |               5 |
 | Strings             |               2 |
 | Trees               |               3 |
-| Graphs              |               0 |
+| Graphs              |               1 |
 | Dynamic Programming |               0 |
 | Backtracking        |               0 |
 | Math                |               1 |
