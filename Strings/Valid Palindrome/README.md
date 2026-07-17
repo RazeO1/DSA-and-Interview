@@ -109,6 +109,17 @@ This avoids creating extra strings and uses constant extra space.
 
 ---
 
+## ✅ Python Solution
+
+```python
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        cleaned = "".join(c.lower() for c in s if c.isalnum())
+        return cleaned == cleaned[::-1]
+```
+
+---
+
 ## 🔍 Dry Run
 
 ### Input
