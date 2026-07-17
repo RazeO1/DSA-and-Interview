@@ -32,7 +32,7 @@ Greedy/
 | Topic               | Problems Solved |
 | ------------------- | --------------: |
 | Arrays              |               5 |
-| Strings             |               2 |
+| Strings             |               3 |
 | Trees               |               3 |
 | Graphs              |               1 |
 | Dynamic Programming |               0 |
