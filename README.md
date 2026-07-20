@@ -37,8 +37,9 @@ Greedy/
 | Graphs              |               1 |
 | Dynamic Programming |               0 |
 | Backtracking        |               0 |
-| Math                |               1 |
-| Stack               |               2 |
+| Maths               |               1 |
+| Stacks              |               2 |
+| Matrix              |               1 |
 ---
 
 ## Goals
